@@ -14,4 +14,15 @@ public class ConnectionUtil {
         factory.setPassword("guest");
         return factory.newConnection();
     }
+
+    public static Connection getConnByURI() throws Exception{
+        ConnectionFactory factory =  new ConnectionFactory();
+        factory.setUri("amqp://guest:guest@localhost:5672");
+        return factory.newConnection();
+    }
+
+    public static void main(String args[]) throws Exception{
+        System.out.println(getConnByURI());
+    }
+
 }
